@@ -4,19 +4,15 @@ import Navbar from './components/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
-  const btnRef = useRef()
+  const [showBtn, setshowBtn] = useState(true)
 
-  useEffect(() => {
-    console.log("First Rendering");
-    btnRef.current.style.backgroundColor = "blue"
-  }, [])
+  
   
 
   return (
     <>
-      <div>The count is {count}</div>
-      <button ref={btnRef} onClick={() => { setCount(count + 1) }}>Update count</button>
-      <button onClick={() => {btnRef.current.style.display = "none"}}>Click me</button>
+      <div>{showBtn? <button>showBtn is true</button> : <button>showBtn is false</button>}</div>
+      <button onClick={ () => {setshowBtn(!showBtn)}}>Toggle showBtn</button>
     </>
   )
 }
